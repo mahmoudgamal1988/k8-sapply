@@ -17,6 +17,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: backend-kubejs-code-pvc
 spec:
+  volumeName: backend-kubejs-code-pv
   accessModes:
     - ReadWriteOnce
   resources:
