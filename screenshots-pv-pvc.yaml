@@ -16,6 +16,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: repos-pvc
 spec:
+  volumeName: repos-pv
   accessModes:
     - ReadWriteOnce
   resources:
