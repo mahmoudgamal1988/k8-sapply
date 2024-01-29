@@ -16,6 +16,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: ssl-pvc
 spec:
+  volumeName: ssl-pv
   accessModes:
     - ReadWriteOnce
   resources:
