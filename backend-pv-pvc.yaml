@@ -17,6 +17,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: backend-code-pvc
 spec:
+  volumeName: backend-code-pv
   accessModes:
     - ReadWriteOnce
   resources:
