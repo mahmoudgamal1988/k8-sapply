@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nsq-deployment
+  labels:
+    app: nsq
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nsq
+  template:
+    metadata:
+      labels:
+        app: nsq
+    spec:
+      containers:
+      - name: nsq
+        image: nsqio/nsq:latest
+        command: ["/nsqd"]
+        ports:
+        - name: nsqd-tcp
+          containerPort: 4150
+        - name: nsqd-http
+          containerPort: 4151
+        - name: nsqd-look
+          containerPort: 4161
+
+        volumeMounts:
+        - name: nsq-pv
+          mountPath: /data
+      volumes:
+      - name: nsq-pv
+        persistentVolumeClaim:
+          claimName: nsq-pv
+      tolerations:
+      - key: "node-role.kubernetes.io/control-plane"
+        operator: "Exists"
+        effect: "NoSchedule"
+      nodeSelector:
+        node-role.kubernetes.io/control-plane: ""

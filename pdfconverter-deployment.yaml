@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pdfconverter-deployment
+  labels:
+    app: pdfconverter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pdfconverter
+  template:
+    metadata:
+      labels:
+        app: pdfconverter
+    spec:
+      containers:
+      - name: pdfconverter-container
+        image: mohamedzahran1989/pdfconverter:2.5
