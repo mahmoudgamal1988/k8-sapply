@@ -17,6 +17,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: scheduler-code-pv
 spec:
+  volumeName: scheduler-code-pv
   accessModes:
     - ReadWriteOnce
   resources:
