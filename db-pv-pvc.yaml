@@ -16,6 +16,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: db-pvc
 spec:
+  volumeName: db-pv
   accessModes:
     - ReadWriteOnce
   resources:
