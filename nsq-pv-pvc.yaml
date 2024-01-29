@@ -16,6 +16,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: nsq-pv
 spec:
+  volumeName: nsq-pv
   accessModes:
     - ReadWriteOnce
   resources:
